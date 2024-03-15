@@ -1,0 +1,20 @@
+.container {
+    font-size: 1.6rem;
+    margin: 2rem auto;
+    display: grid;
+    grid-template-rows: 33vh;
+    grid-template-columns: 1fr;
+
+    @include respond(tablet) {
+        font-size: 1.8rem;
+        margin: 3rem auto;
+        grid-template-rows: 33vh 33vh;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond(desktop) {
+        font-size: 2rem;
+        grid-template-rows: 33vh 33vh 33vh;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

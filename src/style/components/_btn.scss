@@ -1,0 +1,16 @@
+.btn {
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+    font-size: inherit;
+    background-color: transparent;
+    border: 1px solid $color-white;
+    padding: 1.2rem 2rem;
+    border-radius: 2.5rem;
+    color: inherit;
+    cursor: pointer;
+    transition: all 0.5s;
+    &:hover {
+        background-color: $color-white;
+        color: $color-black;
+    }
+}
