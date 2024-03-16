@@ -6,9 +6,6 @@ const useSrollToBottom = (): boolean => {
     useEffect(() => {
         const handleScroll = () => {
             const isAtBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - 5;
-            if (isAtBottom) {
-                console.log('You are at the bottom!');
-            }
             setScrolledToBottom(isAtBottom);
         }
 

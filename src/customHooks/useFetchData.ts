@@ -12,7 +12,6 @@ const useFetchData = () => {
         const fetchData = async (): Promise<void> => {
             setError(null);
             try {
-                console.log('page: ', page);
                 const perPage = (page === 1) ? 9 : 6;
                 const response = await fetch(
                     `https://api.pexels.com/v1/curated?page=${page}&per_page=${perPage}`,
@@ -26,7 +25,6 @@ const useFetchData = () => {
                 }
                 const data: PexelsResponse = await response.json();
                 if (data && data.photos) {
-                    console.log(data.photos);
                     if (page === 1) {
                         setFetchedImages(data.photos);
                     } else {

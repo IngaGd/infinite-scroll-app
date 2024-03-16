@@ -8,7 +8,6 @@ const useIntersectionObserver = (ref: RefObject<HTMLElement>, threshold: number)
             (entries, observer) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
-                        console.log('Image is now observed:', entry.target);
                         setIsObserved(true);
                         observer.unobserve(entry.target);
                     }
