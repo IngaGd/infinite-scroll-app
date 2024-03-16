@@ -13,4 +13,5 @@ const usePagination = (): number => {
 
     return page;
 }
+
 export default usePagination;

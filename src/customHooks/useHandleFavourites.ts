@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Photo } from '../types/Photo';
 
 const useHandleFavourites = () => {
-
     const [favouritedImages, setFavouritedImages] = useState<Photo[]>(() => {
         const storedImages = localStorage.getItem('favouritedImages');
         return storedImages ? JSON.parse(storedImages) : [];
@@ -21,7 +20,6 @@ const useHandleFavourites = () => {
     }
 
     return { favouritedImages, addImage, removeImage };
-
 }
 
 export default useHandleFavourites;

@@ -8,7 +8,6 @@ const ListOfImages: React.FC = () => {
     const { favouritedImages, addImage, removeImage } = useHandleFavourites();
 
     const favouritedImagesIds = favouritedImages.map((img: Photo) => img.id);
-
     const fetchedImagesWithoutFavourited = fetchedImages.filter(
         (img: Photo) => !favouritedImagesIds.includes(img.id)
     );
@@ -40,4 +39,5 @@ const ListOfImages: React.FC = () => {
         </section>
     );
 };
+
 export default ListOfImages;

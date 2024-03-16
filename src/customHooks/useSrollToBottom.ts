@@ -10,11 +10,13 @@ const useSrollToBottom = (): boolean => {
                 console.log('You are at the bottom!');
             }
             setScrolledToBottom(isAtBottom);
-        };
+        }
+
         window.addEventListener('scroll', handleScroll);
+
         return () => {
             window.removeEventListener('scroll', handleScroll);
-        };
+        }
     }, []);
 
     return scrolledToBottom;
