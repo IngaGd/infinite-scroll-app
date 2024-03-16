@@ -3,7 +3,7 @@ import { Photo } from '../types/Photo';
 import { PexelsResponse } from '../types/PexelsResponse';
 import usePagination from "./usePagination";
 
-const useFetchData = (): { fetchedImages: Photo[], error: string | null } => {
+const useFetchData = () => {
     const [fetchedImages, setFetchedImages] = useState<Photo[]>([]);
     const [error, setError] = useState<string | null>(null);
     const page = usePagination();
