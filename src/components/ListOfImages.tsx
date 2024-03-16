@@ -17,7 +17,7 @@ const ListOfImages: React.FC = () => {
     }
 
     return (
-        <section className="container">
+        <section className="image-list">
             {favouritedImages?.map((img: Photo) => (
                 <ImageListItem
                     key={img.id}

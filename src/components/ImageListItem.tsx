@@ -12,7 +12,7 @@ const ImageListItem: React.FC<ImageListItemProps> = ({
     const isVisible = useIntersectionObserver(imageRef, 0.7);
 
     return (
-        <div ref={imageRef} key={img.id} className="images-list">
+        <div ref={imageRef} key={img.id} className="images-list-item">
             <div className={`image-box ${isVisible ? 'shadow' : ''}`}>
                 <picture>
                     {isVisible && (
