@@ -1,3 +1,16 @@
+Project setup:
+
+To start the app, open your Visual Studio Code terminal and enter the following commands:
+
+1. cd infinite-scroll-app (then press Enter)
+2. `npm install` (then press Enter). - This installs the required node modules.
+3. `npm start` (then press Enter). - This starts the development server and opens the app in your default web browser.
+   For more information on how the React project runs, please refer to the statements highlighted in blue below.
+
+The app fetches images from Pexels. For the ease of use of end-users, I have left my API key in the .env file,
+but you are welcome to create and use your own. In this case to get started, please create an account at Pexels
+and obtain your API key from the Pexels API page. Insert this key into the environment variable file (.env).
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
