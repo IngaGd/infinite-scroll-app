@@ -1,16 +1,11 @@
 import { useEffect, useState } from "react";
 import { Photo } from '../types/Photo';
 import { PexelsResponse } from '../types/PexelsResponse';
+import usePagination from "./usePagination";
 
-const useFetchData = (scrolledToBottom: boolean): Photo[] => {
+const useFetchData = (): Photo[] => {
     const [fetchedImages, setFetchedImages] = useState<Photo[]>([]);
-    const [page, setPage] = useState<number>(1);
-
-    useEffect(() => {
-        if (scrolledToBottom) {
-            setPage(p => p + 1);
-        }
-    }, [scrolledToBottom]);
+    const page = usePagination();
 
     useEffect(() => {
         const fetchData = async (): Promise<void> => {

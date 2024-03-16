@@ -5,8 +5,7 @@ import ImageListItem from './ImageListItem';
 import { Photo } from '../types/Photo';
 
 const ListOfImages: React.FC = () => {
-    const scrolledToBottom = useSrollToBottom();
-    const fetchedImages = useFetchData(scrolledToBottom);
+    const fetchedImages = useFetchData();
     const { favouritedImages, addImage, removeImage } = useHandleFavourites();
 
     const favouritedImagesIds = favouritedImages.map((img: Photo) => img.id);
