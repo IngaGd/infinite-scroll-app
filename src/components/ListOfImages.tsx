@@ -1,5 +1,4 @@
 import useFetchData from '../customHooks/useFetchData';
-import useSrollToBottom from '../customHooks/useSrollToBottom';
 import useHandleFavourites from '../customHooks/useHandleFavourites';
 import ImageListItem from './ImageListItem';
 import { Photo } from '../types/Photo';
