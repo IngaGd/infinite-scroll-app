@@ -13,7 +13,7 @@ const ListOfImages: React.FC = () => {
     );
 
     if (error) {
-        return <div>Error: {error}</div>;
+        return <div className="error">Error: {error}</div>;
     }
 
     return (
