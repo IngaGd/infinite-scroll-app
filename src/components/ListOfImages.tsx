@@ -5,7 +5,7 @@ import ImageListItem from './ImageListItem';
 import { Photo } from '../types/Photo';
 
 const ListOfImages: React.FC = () => {
-    const fetchedImages = useFetchData();
+    const { fetchedImages, error } = useFetchData();
     const { favouritedImages, addImage, removeImage } = useHandleFavourites();
 
     const favouritedImagesIds = favouritedImages.map((img: Photo) => img.id);
@@ -13,6 +13,10 @@ const ListOfImages: React.FC = () => {
     const fetchedImagesWithoutFavourited = fetchedImages.filter(
         (img: Photo) => !favouritedImagesIds.includes(img.id)
     );
+
+    if (error) {
+        return <div>Error: {error}</div>;
+    }
 
     return (
         <section className="container">

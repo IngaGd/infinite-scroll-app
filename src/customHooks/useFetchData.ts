@@ -3,12 +3,14 @@ import { Photo } from '../types/Photo';
 import { PexelsResponse } from '../types/PexelsResponse';
 import usePagination from "./usePagination";
 
-const useFetchData = (): Photo[] => {
+const useFetchData = (): { fetchedImages: Photo[], error: string | null } => {
     const [fetchedImages, setFetchedImages] = useState<Photo[]>([]);
+    const [error, setError] = useState<string | null>(null);
     const page = usePagination();
 
     useEffect(() => {
         const fetchData = async (): Promise<void> => {
+            setError(null);
             try {
                 console.log('page: ', page);
                 const perPage = (page === 1) ? 9 : 6;
@@ -36,13 +38,14 @@ const useFetchData = (): Photo[] => {
                     }
                 }
             } catch (error) {
+                setError('Failed to fetch images. Please try again.');
                 console.error('error fetching image:', error);
             }
         };
         fetchData();
     }, [page]);
 
-    return fetchedImages;
+    return { fetchedImages, error };
 };
 
 export default useFetchData;
