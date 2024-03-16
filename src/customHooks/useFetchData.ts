@@ -39,7 +39,7 @@ const useFetchData = (): { fetchedImages: Photo[], error: string | null } => {
                 }
             } catch (error) {
                 setError('Failed to fetch images. Please try again.');
-                console.error('error fetching image:', error);
+                console.error('Error fetching image:', error);
             }
         };
         fetchData();
