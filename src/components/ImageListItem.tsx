@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { ImageListItemProps } from '../types/ImageListItemProps';
-import useVisibilityObserver from '../customHooks/useVisibilityObserver';
+import useIntersectionObserver from '../customHooks/useIntersectionObserver';
 
 const ImageListItem: React.FC<ImageListItemProps> = ({
     img,
@@ -9,7 +9,7 @@ const ImageListItem: React.FC<ImageListItemProps> = ({
     onUnfavourite,
 }) => {
     const imageRef = useRef<HTMLDivElement>(null);
-    const isVisible = useVisibilityObserver(imageRef);
+    const isVisible = useIntersectionObserver(imageRef, 0.7);
 
     return (
         <div ref={imageRef} key={img.id} className="images-list">

@@ -1,19 +1,19 @@
 import { useEffect, useState, RefObject } from "react";
 
-const useVisibilityObserver = (ref: RefObject<HTMLElement>): boolean => {
-    const [isVisible, setIsVisible] = useState<boolean>(false);
+const useIntersectionObserver = (ref: RefObject<HTMLElement>, threshold: number): boolean => {
+    const [isObserved, setIsObserved] = useState<boolean>(false);
     useEffect(() => {
         const observer = new IntersectionObserver(
             (entries, observer) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
-                        console.log('Image is now visible:', entry.target);
-                        setIsVisible(true);
+                        console.log('Image is now observed:', entry.target);
+                        setIsObserved(true);
                         observer.unobserve(entry.target);
                     }
                 });
             },
-            { threshold: 0.7 }
+            { threshold }
         );
         if (ref.current) {
             observer.observe(ref.current);
@@ -21,8 +21,8 @@ const useVisibilityObserver = (ref: RefObject<HTMLElement>): boolean => {
         return () => {
             observer.disconnect();
         };
-    }, [ref]);
-    return isVisible;
+    }, [ref, threshold]);
+    return isObserved;
 }
 
-export default useVisibilityObserver;
+export default useIntersectionObserver;

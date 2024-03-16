@@ -30,17 +30,8 @@ const useFetchData = (): Photo[] => {
                     } else {
                         setFetchedImages((prevFetchedImages) => {
                             const oldAndNewImages = [...prevFetchedImages, ...data.photos];
-
-                            const uniqueIdsSet = new Set();
-                            const uniqueImages = [];
-
-                            for (const img of oldAndNewImages) {
-                                if (!uniqueIdsSet.has(img.id)) {
-                                    uniqueIdsSet.add(img.id);
-                                    uniqueImages.push(img);
-                                }
-                            }
-                            return uniqueImages;
+                            const idsSet = new Set();
+                            return oldAndNewImages.filter(element => !idsSet.has(element.id) && idsSet.add(element.id));
                         });
                     }
                 }
